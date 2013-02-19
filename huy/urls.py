@@ -1,9 +1,9 @@
 from django.conf.urls import patterns, include, url
 from huy.views import hello , current_datetime,hours_ahead
-from django.contrib import admin
+
 # Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
+from django.contrib import admin
+admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
