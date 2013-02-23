@@ -1,5 +1,6 @@
 # Django settings for huy project.
 import os.path
+import logging
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -118,6 +119,7 @@ INSTALLED_APPS = (
     #'django.contrib.messages',
     #'django.contrib.staticfiles',
     'books',
+	'hamagua',
 
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
@@ -140,7 +142,7 @@ LOGGING = {
     },
     'handlers': {
         'mail_admins': {
-            'level': 'ERROR',
+            'level': 'DEBUG',
             'filters': ['require_debug_false'],
             'class': 'django.utils.log.AdminEmailHandler'
         }
@@ -148,8 +150,12 @@ LOGGING = {
     'loggers': {
         'django.request': {
             'handlers': ['mail_admins'],
-            'level': 'ERROR',
+            'level': 'DEBUG',
             'propagate': True,
         },
     }
 }
+logging.basicConfig(
+	level = logging.DEBUG,
+	format = '%(asctime)s %(levelname)s %(message)s',
+)

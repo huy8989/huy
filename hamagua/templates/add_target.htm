@@ -1,0 +1,7 @@
+<form action="/addTarget/" method="post">
+{% csrf_token %}
+	题目：<input type="text" name="name"/>
+	期限：<input type="text" name="time_allownace"/>
+	描述：<input type="text" name="comment"/>
+		  <input type="submit" value="提交" name="submit"/>
+</form>

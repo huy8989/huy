@@ -1,5 +1,6 @@
 from django.conf.urls import patterns, include, url
 from huy.views import hello , current_datetime,hours_ahead
+from hamagua.views import addTarget,addTargetForm,result
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -18,6 +19,9 @@ urlpatterns = patterns('',
     ('^hello/$', hello),
     ('^time/$', current_datetime),
     (r'^time/plus/(\d{1,2})/$', hours_ahead),
+	(r'^addTarget/$',addTarget),
+	(r'^addTargetForm/$',addTargetForm),
+	(r'^result/$',result),
 )
 
 
