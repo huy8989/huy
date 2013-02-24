@@ -1,0 +1,9 @@
+{% if targets %}
+	<ul>
+		{% for target in targets %}
+		<li>{{target.name}}</li>
+		{% endfor %}
+	</ul>
+{% else %}
+	<p> 噢，您还没有任何目标设定
+{% endif %}

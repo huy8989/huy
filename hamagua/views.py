@@ -15,7 +15,7 @@ def addTarget(request):
 		if form.is_valid():
 			tf = form.cleaned_data
 			target = Target(name=tf['name'],time_allownace = tf['time_allownace'],
-							comment=tf['comment'])
+							comment=tf['comment'],user=request.user.get_full_name())
 			target.save(force_insert=True )
 			logging.debug(target)
 		return HttpResponseRedirect('/result/')
@@ -26,3 +26,18 @@ def addTarget(request):
 	
 def result(request):
 	return render_to_response('success.htm')
+
+def deleteTarget(request,id):
+	target = Target.objects.get(id=id)
+	target.delete()
+	return HttpResponseRedirect('/myTargets/')
+
+def showMyTargets(request):
+	if request.user.is_authenticated():
+		username = request.get_full_name()
+		targets = Target.objects.filter(name=username)
+		return render_to_response('targetList.htm',{'targets':targets})
+		
+	else:
+		return HttpResponseRedirect('/login/')
+

@@ -120,6 +120,7 @@ INSTALLED_APPS = (
     #'django.contrib.staticfiles',
     'books',
 	'hamagua',
+	'login',
 
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
