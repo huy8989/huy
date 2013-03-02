@@ -1,0 +1,22 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <link rel="stylesheet" href="style.css" />
+    <title>{% block title %}My amazing site{% endblock %}</title>
+</head>
+ 
+<body>
+    <div id="header">
+        {% block header %}
+		hi {{ user.username }} <a href="">退出</a>
+        {% endblock %}
+    </div>
+ 
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+
+	<div id="footer">
+	公司简介|招贤纳士|广告服务|银行汇款帐号|联系方式|版权声明|法律顾问|问题报告
+	</div>
+</body>
+

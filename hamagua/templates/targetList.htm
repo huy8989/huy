@@ -1,3 +1,6 @@
+{% extends "base.htm" %}
+
+{%block content %}
 {% if targets %}
 	<ul>
 		{% for target in targets %}
@@ -7,3 +10,4 @@
 {% else %}
 	<p> 噢，您还没有任何目标设定
 {% endif %}
+{% endblock %}
