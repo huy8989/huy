@@ -1,9 +1,16 @@
-<div class="userinfo">
-				{% if user.is_authenticated %}
-					欢迎您:{{user.username}}
-				{% else %}
-					<a href="/login">登录</a>
-					<a href="/register">注册</a>
-				{% endif %}
-				<a href="/logout">注销</a>
-			</div>
+{% extends "login_base.htm" %}
+ 
+{%block content %}
+
+<div class="container">
+<form class="form-signin" action="/login/" method ="POST">
+{% csrf_token %}
+<h2 class="form-signin-heading">Please sign in</h2>
+	<input type="text" class="input-block-level" name="username" placeholder="name"/>
+	<input type="password"class="input-block-level" name="password" placeholder="password"/>
+		<input type="submit" class="btn btn-large btn-primary" name="login" />
+</form>
+ </div>
+ {% endblock %}
+
+      

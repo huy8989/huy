@@ -28,10 +28,11 @@ def register(request):
         return render(request,'register.htm')
 #        return render_to_response('user/register.html', context_instance=RequestContext(request))
     
+@csrf_protect
 def login(request):
     #表单提交过来的数据
     if request.user.is_authenticated():
-        return  HttpResponse('你已经登录')
+        return  render(request,'index.htm')
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
@@ -39,13 +40,13 @@ def login(request):
         if user is not None:
             if user.is_active:
                         user_login(request, user)
-                        return HttpResponseRedirect('/account/%d' % user.id)
+                        return HttpResponseRedirect('/targets' )
             else:
                     return HttpResponse('用户没有启用!')
         else:
                 return HttpResponse('用户名或者密码错误！')
     else:
-        return render_to_response('login.htm')
+        return render(request,'login.htm')
     
 def logout(request):
     user_logout(request)

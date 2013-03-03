@@ -2,6 +2,7 @@ from django.conf.urls import patterns, include, url
 from huy.views import hello , current_datetime,hours_ahead
 from hamagua.views import addTarget,addTargetForm,result,showMyTargets
 from login.views import index,register,login,logout
+import settings
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -28,6 +29,7 @@ urlpatterns = patterns('',
 	(r'^logout/$',logout),
 	(r'^login/$',login),
 	(r'^targets/$',showMyTargets),
+   
 )
 
 

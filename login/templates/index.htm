@@ -1,4 +1,5 @@
-<div class="userinfo">
+
+    <div class="container">
 				{% if user.is_authenticated %}
 					欢迎您:{{user.username}}
 				{% else %}
@@ -7,3 +8,6 @@
 				{% endif %}
 				<a href="/logout">注销</a>
 			</div>
+
+ 
+			
