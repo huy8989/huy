@@ -1,22 +1,51 @@
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <link rel="stylesheet" href="style.css" />
+        <link href="{{ STATIC_URL }}css/target_base.css" rel="stylesheet" media="screen"> 
+    <!-- Bootstrap -->
+    <link href="{{ STATIC_URL }}css/bootstrap.min.css" rel="stylesheet" media="screen">
     <title>{% block title %}My amazing site{% endblock %}</title>
 </head>
  
 <body>
-    <div id="header">
-        {% block header %}
-		hi {{ user.username }} <a href="">退出</a>
-        {% endblock %}
+    <div class="navbar navbar-inverse">
+        <div class="navbar-inner">
+            <a class="brand" href="#">Title</a>
+                <ul class="nav">
+                    <li class="active"><a href="#">首页</a></li>
+                    <li><a href="#">Link</a></li>
+                    <li><a href="#">Link</a></li>
+                </ul>
+                <ul  class="nav pull-right">
+                    <li ><p class="navbar-text">{{ user.username }} </p></li>
+                    <li > <a href="">退出</a></li>
+                    
+                </ul>
+
+        </div>
     </div>
+        
+   </div>
  
-    <div id="content">
-        {% block content %}{% endblock %}
+   
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span2">
+                    <ul class="nav nav-tabs nav-stacked">
+                        <li><a>Today</a></li>
+                        <li><a>List</a></li>
+                        
+                    </ul>
+             </div>
+            <div class="span10">
+                {% block content2 %}{% endblock %}
+            </div>
+         </div>
     </div>
 
-	<div id="footer">
-	公司简介|招贤纳士|广告服务|银行汇款帐号|联系方式|版权声明|法律顾问|问题报告
-	</div>
+	<div class="footer">
+    
+    </div>
 </body>
 

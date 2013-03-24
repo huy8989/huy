@@ -1,6 +1,6 @@
 from forms import TargetForm
 from django.http import HttpResponse,HttpResponseRedirect
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response,render,get_object_or_404
 from django.views.decorators.csrf import csrf_protect
 from django.template import RequestContext 
 from models import Target
@@ -8,6 +8,7 @@ import logging
 
 def addTargetForm(request):
 	return render_to_response('add_target.htm',context_instance=RequestContext(request))
+
 @csrf_protect
 def addTarget(request):
 	if request.method=='POST':
@@ -21,7 +22,7 @@ def addTarget(request):
 		return HttpResponseRedirect('/result/')
 	else:
 		form = TargetForm()
-	return render_to_response('add_target.htm',{'form':form})
+	return render(request,'add_target.htm')
 	
 	
 def result(request):
