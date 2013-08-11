@@ -37,7 +37,9 @@ def showMyTargets(request):
 	if request.user.is_authenticated():
 		username = request.user.username
 		targets = Target.objects.filter(user=username)
-		return render_to_response('targetList.htm',{'targets':targets})
+
+		##return render_to_response('targetList.htm',{'targets':targets},context_instance=RequestContext(request))
+		return render(request,'targetList.htm',{'targets':targets})
 		
 	else:
 		return HttpResponseRedirect('/login/')

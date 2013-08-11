@@ -6,6 +6,10 @@ body {
 
 
 }
+#addTargetBtn{
+	position:relative;
+	right:-20px
+}
 
 
 

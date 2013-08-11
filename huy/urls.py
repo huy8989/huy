@@ -29,6 +29,7 @@ urlpatterns = patterns('',
 	(r'^logout/$',logout),
 	(r'^login/$',login),
 	(r'^targets/$',showMyTargets),
+    
    
 )
 
